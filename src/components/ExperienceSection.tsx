@@ -26,6 +26,19 @@ const experiences: Experience[] = [
     ],
   },
   {
+    title: 'Undergraduate Research Assistant',
+    company: 'Professor Lawrence King, UMass Amherst',
+    location: 'Amherst, MA',
+    period: 'Sep 2025 – Present',
+    description: 'Replicating and extending IMF inequality research using event-study panel methods',
+    tech: 'Python, R, Stata, Pandas',
+    highlights: [
+      'Built a large-scale, event-study panel dataset combining IMF program data and global inequality measures, enabling causal inference on policy impacts using stacked regression methods',
+      'Constructed a stacked panel of first-time IMF program entries (−3/+5 window) to identify causal effects on disposable-income inequality',
+      'Implemented reproducible data pipelines in Python/R to clean, merge, and validate cross-country time-series data, addressing legacy format and compatibility constraints',
+    ],
+  },
+  {
     title: 'AI Engineer / Data Science Intern',
     company: 'Kapital Bank',
     location: 'Baku, Azerbaijan',
@@ -68,7 +81,7 @@ const experiences: Experience[] = [
     title: 'Undergraduate Research Assistant',
     company: 'Khwarizmi Lab, UMass Amherst',
     location: 'Amherst, MA',
-    period: 'Sep 2025 – Present',
+    period: 'Sep 2024 – May 2025',
     description: 'Research in AI and wireless systems under Prof. Taqi Raza',
     highlights: [
       'Researching AI applications in wireless and energy systems',
