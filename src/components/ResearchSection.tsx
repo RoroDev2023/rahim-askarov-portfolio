@@ -1,5 +1,6 @@
 import { FileText, BookOpen, Lightbulb } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
 
 interface Research {
   title: string;
@@ -11,52 +12,91 @@ interface Research {
 
 const research: Research[] = [
   {
-    title: 'AI-Driven Energy Systems Optimization',
-    status: 'In Progress',
-    description: 'Applying reinforcement learning and time-series forecasting to optimize smart grid operations and renewable energy integration.',
-    topics: ['Reinforcement Learning', 'Time-Series', 'Energy Systems'],
+    title: 'AI for Wireless & Energy Systems',
+    status: 'Ongoing Research',
+    description: 'Undergraduate Research Assistant at Khwarizmi Lab under Prof. Taqi Raza. Researching AI applications in wireless networks and energy systems.',
+    topics: ['Deep Learning', 'Wireless Networks', 'Energy Systems'],
     icon: Lightbulb,
   },
   {
-    title: 'Economics Meets Machine Learning',
-    status: 'Working Paper',
-    description: 'Exploring causal inference methods and their applications in economic policy analysis using modern ML techniques.',
-    topics: ['Causal Inference', 'Econometrics', 'Policy Analysis'],
+    title: 'Time-Series Forecasting for Smart Grids',
+    status: 'Applied Research',
+    description: 'Developing PyTorch-based models for predicting carbon intensity and renewable energy availability across U.S. regions.',
+    topics: ['Time-Series', 'PyTorch', 'Sustainability'],
     icon: BookOpen,
   },
   {
-    title: 'Efficient Transformers for Time-Series',
-    status: 'Research Collaboration',
-    description: 'Investigating attention mechanisms and architectural improvements for long-horizon forecasting in resource-constrained environments.',
-    topics: ['Transformers', 'Efficiency', 'Forecasting'],
+    title: 'RL-Inspired Energy Scheduling',
+    status: 'Implementation',
+    description: 'Building reinforcement learning-inspired scheduling engines for optimal EV charging and grid usage, reducing fossil-fuel reliance.',
+    topics: ['Reinforcement Learning', 'Optimization', 'Sustainability'],
     icon: FileText,
   },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
 
 const ResearchSection = () => {
   return (
     <section id="research" className="py-24 relative bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Research & Publications</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Academic work at the intersection of AI, systems, and economics
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mt-4" />
-        </div>
+        </motion.div>
 
         {/* Research cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {research.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="gradient-border p-8 rounded-2xl bg-card hover:bg-card/80 transition-all duration-500 hover:-translate-y-1 group"
+              variants={itemVariants}
+              whileHover={{ 
+                y: -8,
+                boxShadow: "0 25px 50px -12px hsl(var(--accent) / 0.2)"
+              }}
+              className="gradient-border p-8 rounded-2xl bg-card transition-colors duration-300 group"
             >
               {/* Icon */}
-              <div className="p-3 rounded-lg bg-accent/10 w-fit mb-6 group-hover:bg-accent/20 transition-colors">
+              <motion.div 
+                className="p-3 rounded-lg bg-accent/10 w-fit mb-6 group-hover:bg-accent/20 transition-colors"
+                whileHover={{ rotate: 5, scale: 1.1 }}
+              >
                 <item.icon className="w-6 h-6 text-accent" />
-              </div>
+              </motion.div>
 
               {/* Status */}
               <Badge variant="accent" className="mb-4">
@@ -79,14 +119,20 @@ const ResearchSection = () => {
                   </Badge>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Note */}
-        <p className="text-center text-muted-foreground text-sm mt-12">
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="text-center text-muted-foreground text-sm mt-12"
+        >
           More publications and preprints coming soon. Stay tuned.
-        </p>
+        </motion.p>
       </div>
     </section>
   );

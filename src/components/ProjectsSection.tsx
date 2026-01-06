@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 interface Project {
   title: string;
@@ -15,53 +16,92 @@ const projects: Project[] = [
   {
     title: 'RizzTheGrid',
     description: 'AI-powered smart-grid copilot for energy optimization',
-    impact: 'ML forecasting, RL-inspired scheduling, real-time optimization for sustainable energy distribution',
-    techStack: ['PyTorch', 'Time-Series', 'RL', 'Python', 'FastAPI'],
+    impact: 'Predicts hourly carbon intensity using PyTorch time-series models. RL-inspired scheduling reduces fossil-fuel reliance by 4%.',
+    techStack: ['Python', 'Flask', 'PyTorch', 'Next.js', 'Azure', 'D3.js'],
   },
   {
-    title: 'Vinoria – AI Wine Store',
-    description: 'AI-driven wine recommendation and retail automation platform',
-    impact: 'Personalized recommendations using collaborative filtering and NLP-based taste profiling',
-    techStack: ['React', 'Node.js', 'ML', 'PostgreSQL', 'Azure'],
+    title: 'AZZA Mobile App',
+    description: 'Mobile app for wine browsing and purchasing',
+    impact: 'Lead Developer for React Native app with Firebase Firestore, reducing data delays by 40% for thousands of users.',
+    techStack: ['React Native', 'Java', 'Redux', 'Firebase'],
   },
   {
     title: 'Voice AI Assistant',
     description: 'Real-time speech-to-speech conversational AI system',
-    impact: 'Sub-200ms latency voice interactions using Azure Speech Services and GPT-4',
-    techStack: ['Azure', 'GPT-4', 'WebSockets', 'TypeScript', 'Express'],
+    impact: 'Built for Kapital Bank with Azure Cognitive Services and GPT-4, reducing customer service response time by 20%.',
+    techStack: ['Azure', 'GPT-4', 'STT/TTS', 'Python', 'WebSockets'],
   },
   {
     title: 'ML Healthcare Imaging',
-    description: 'Clinical ML pipelines for dermatology diagnostics',
-    impact: 'Deep learning models for skin condition classification, deployed in production at Rightance Healthcare',
-    techStack: ['PyTorch', 'Computer Vision', 'Docker', 'AWS', 'FastAPI'],
+    description: 'Clinical ML pipelines for healthcare applications',
+    impact: 'Contributing to AI models for healthcare and clinical imaging at Rightance Healthcare Inc.',
+    techStack: ['Pandas', 'Transformers', 'Scikit-learn', 'NLP', 'Python'],
   },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
 
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 relative bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Selected work showcasing ML research, systems engineering, and product development
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mt-4" />
-        </div>
+        </motion.div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group gradient-border p-8 rounded-2xl bg-card hover:bg-card/80 transition-all duration-500 hover:-translate-y-1"
+              variants={itemVariants}
+              whileHover={{ 
+                y: -8,
+                boxShadow: "0 25px 50px -12px hsl(var(--primary) / 0.25)"
+              }}
+              className="group gradient-border p-8 rounded-2xl bg-card transition-colors duration-300"
             >
               {/* Project number */}
-              <div className="text-6xl font-bold text-muted/20 mb-4">
+              <motion.div 
+                className="text-6xl font-bold text-muted/20 mb-4"
+                whileHover={{ scale: 1.1, color: "hsl(var(--primary) / 0.3)" }}
+              >
                 0{index + 1}
-              </div>
+              </motion.div>
 
               {/* Content */}
               <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
@@ -90,9 +130,9 @@ const ProjectsSection = () => {
                   Source
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
