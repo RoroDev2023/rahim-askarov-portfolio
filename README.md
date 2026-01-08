@@ -1,7 +1,5 @@
 # Welcome to my portfolio website
 
-## What technologies are used for this project?
-
 This project is built with:
 
 - Vite
@@ -9,3 +7,5 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+
+## Enjoy
