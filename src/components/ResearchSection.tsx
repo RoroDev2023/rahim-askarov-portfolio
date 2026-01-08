@@ -12,10 +12,10 @@ interface Research {
 
 const research: Research[] = [
   {
-    title: 'AI for Wireless & Energy Systems',
+    title: 'IMF Political Economy Research',
     status: 'Ongoing Research',
-    description: 'Undergraduate Research Assistant at Khwarizmi Lab under Prof. Taqi Raza. Researching AI applications in wireless networks and energy systems.',
-    topics: ['Deep Learning', 'Wireless Networks', 'Energy Systems'],
+    description: 'Research under Prof. Lawrence King at UMass Amherst. Assessing how IMF involvement and conditionality affects inequality. Employing ML methods including clustering condition bundles and embeddings for conditionality analysis.',
+    topics: ['Political Economy', 'Machine Learning', 'Causal Inference'],
     icon: Lightbulb,
   },
   {
