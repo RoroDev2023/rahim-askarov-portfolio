@@ -13,11 +13,11 @@ interface Startup {
 
 const startups: Startup[] = [
   {
-    name: 'Rightance Healthcare',
+    name: 'Healthcare Technology',
     country: 'United States',
     flag: '🇺🇸',
     description: 'AI-powered healthcare solutions for clinical imaging and diagnostics',
-    status: 'Current',
+    status: 'Developing & Funding',
     highlight: 'Secured $100K funding',
     role: 'Machine Learning Engineer',
   },
@@ -26,7 +26,7 @@ const startups: Startup[] = [
     country: 'Switzerland',
     flag: '🇨🇭',
     description: 'Retail and import/export platform connecting European markets',
-    status: 'Developed & Funded',
+    status: 'Developing & Funding',
     highlight: 'Secured investment',
     role: 'Co-Founder & Developer',
   },
@@ -116,7 +116,7 @@ const StartupsSection = () => {
                     {startup.flag}
                   </motion.span>
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    startup.status === 'Current' 
+                    startup.status === 'Developing & Funding' 
                       ? 'bg-green-500/10 text-green-600 border border-green-500/20' 
                       : startup.status === 'Operating'
                       ? 'bg-primary/10 text-primary border border-primary/20'
