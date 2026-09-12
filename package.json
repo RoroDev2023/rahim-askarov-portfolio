@@ -1,0 +1,12 @@
+{
+  "name": "rahim-askarov-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio for Rahim Askarov",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "check": "node --check script.js && node --check terminal.js && node --check server.js && node --check build.js",
+    "build": "node build.js"
+  }
+}

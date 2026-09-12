@@ -1,0 +1,32 @@
+[
+  {
+    "frames": 154,
+    "medianMs": 16.699999928474426,
+    "p95Ms": 17.700000047683716,
+    "maxMs": 87.10000002384186,
+    "reads": 2,
+    "rootWrites": 0,
+    "allocations": 0,
+    "resets": 0,
+    "onsetMaxMs": 17.5,
+    "width": 1440,
+    "styleRecalcs": 104,
+    "styleMs": 30.973999999999997,
+    "layouts": 4
+  },
+  {
+    "frames": 156,
+    "medianMs": 16.699999928474426,
+    "p95Ms": 17.40000009536743,
+    "maxMs": 67.60000002384186,
+    "reads": 2,
+    "rootWrites": 0,
+    "allocations": 0,
+    "resets": 0,
+    "onsetMaxMs": 17.5,
+    "width": 390,
+    "styleRecalcs": 97,
+    "styleMs": 28.122,
+    "layouts": 4
+  }
+]
